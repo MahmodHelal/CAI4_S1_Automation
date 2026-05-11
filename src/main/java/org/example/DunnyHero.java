@@ -66,22 +66,14 @@ public class DunnyHero {
         String actualMessage = driver.findElement(By.id("flash")).getText();
 
 
-/*        if (actualMessage.contains(expectedSuccessMessage)){
-            System.out.println("Login successful.");
-        } else {
-            System.out.println("Expected message: " + expectedSuccessMessage);
-            System.out.println("Actual message: " + actualMessage);
-            System.out.println("Login failed.");
-        }*/
+
 
         System.out.println("Before Assert");
 
-//        Assert.assertEquals(actualMessage, expectedSuccessMessage, "Login failed.");
 
         Assert.assertTrue(actualMessage.contains(expectedSuccessMessage), "Login failed.");
 
         System.out.println("After Assert");
-        /// /////////////////////////////////////
 
     }
 
