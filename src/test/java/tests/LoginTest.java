@@ -8,18 +8,18 @@ import pages.LoginPage;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(priority = 1)
     public void validLogin(){
         Assert.assertEquals(homePage.getActualTitle(),homePage.getExpectedTitle());
        loginPage = homePage.clickFormAuthLink(); // = new LoginPage(driver);
         Assert.assertEquals(loginPage.getActualTitle(),loginPage.getExpectedTitle());
-        secureAreaPage =  loginPage.loginBy("tomsmith","SuperSecretPassword!");
+        secureAreaPage =  loginPage.loginBy("wrong","SuperSecretPassword!");
         Assert.assertTrue(secureAreaPage.getActualTitle().contains(secureAreaPage.getActualTitle()));
         Assert.assertTrue(secureAreaPage.getActualMessage().contains(secureAreaPage.getExpectedSuccessMsg()));
     }
 
 
-    @Test
+    @Test(priority = 2)
     public void invalidUsernameLogin(){
         Assert.assertEquals(homePage.getActualTitle(),homePage.getExpectedTitle());
         loginPage = homePage.clickFormAuthLink(); // = new LoginPage(driver);
